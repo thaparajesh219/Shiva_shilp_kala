@@ -50,13 +50,12 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
     <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-stone-900/95 shadow-lg' : 'bg-transparent md:bg-stone-900/70'}`}>
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div 
+          <button
             onClick={() => setCurrentPage('home')} 
-            className="text-2xl font-bold text-white cursor-pointer hover:text-amber-400 transition-colors"
-            style={{ fontFamily: "'Noto Serif', serif" }}
+            className="text-2xl font-bold text-white cursor-pointer hover:text-amber-400 transition-colors text-left"
           >
             Shiva Shilp Kala
-          </div>
+          </button>
           <div className="hidden md:block">
             <ul className="flex items-center space-x-2">
               {navLinks.map((link) => (

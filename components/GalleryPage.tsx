@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { GALLERY_IMAGES } from '../constants';
 import { GalleryCategory, GalleryItem } from '../types';
@@ -30,7 +29,7 @@ const GalleryPage: React.FC = () => {
   return (
     <div className="container mx-auto px-6 py-16">
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-stone-800 mb-2 fade-in" style={{ fontFamily: "'Noto Serif', serif" }}>Gallery</h2>
+        <h2 className="text-4xl font-bold text-stone-800 mb-2 fade-in">Gallery</h2>
         <p className="text-lg text-stone-600 fade-in" style={{ animationDelay: '0.3s' }}>Our Divine & Memorial Creations</p>
         <div className="w-24 h-1 bg-amber-500 mx-auto mt-4 fade-in" style={{ animationDelay: '0.6s' }}></div>
       </div>
@@ -43,11 +42,12 @@ const GalleryPage: React.FC = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredImages.map((image, index) => (
-          <div
+          <button
             key={image.id}
-            className="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer fade-in"
+            className="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer fade-in block w-full text-left focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2"
             style={{ animationDelay: `${1 + index * 0.1}s` }}
             onClick={() => setSelectedImg(image)}
+            aria-label={`View details for ${image.title}`}
           >
             <img src={image.src} alt={image.alt} className="w-full h-72 object-cover transform group-hover:scale-110 transition-transform duration-500 ease-in-out" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
@@ -55,7 +55,7 @@ const GalleryPage: React.FC = () => {
               <h3 className="text-white text-lg font-bold">{image.title}</h3>
               <p className="text-amber-300 text-sm capitalize">{image.category}</p>
             </div>
-          </div>
+          </button>
         ))}
       </div>
 
@@ -65,12 +65,13 @@ const GalleryPage: React.FC = () => {
           onClick={() => setSelectedImg(null)}
         >
           <div className="relative bg-white p-4 rounded-lg shadow-2xl max-w-3xl w-full" onClick={(e) => e.stopPropagation()}>
-            <img src={selectedImg.src.replace('800/600', '1200/800')} alt={selectedImg.alt} className="w-full h-auto rounded-md object-contain max-h-[80vh]" />
+            <img src={selectedImg.src.replace('w=800', 'w=1200')} alt={selectedImg.alt} className="w-full h-auto rounded-md object-contain max-h-[80vh]" />
             <h3 className="text-xl font-bold mt-4 text-stone-800">{selectedImg.title}</h3>
             <p className="text-stone-600">{selectedImg.alt}</p>
             <button 
               onClick={() => setSelectedImg(null)}
               className="absolute -top-4 -right-4 bg-white rounded-full p-2 shadow-lg text-stone-700 hover:text-red-500 transition-colors"
+              aria-label="Close image viewer"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
             </button>

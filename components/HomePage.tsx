@@ -16,8 +16,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       ></div>
       <div className="relative z-20 text-center px-4">
         <h1 
-          className="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-xl fade-in" 
-          style={{ fontFamily: "'Noto Serif', serif" }}
+          className="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-xl fade-in"
         >
           A Legacy Carved in Stone
         </h1>

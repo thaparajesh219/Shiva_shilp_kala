@@ -20,7 +20,7 @@ const ContactPage: React.FC = () => {
   return (
     <div className="container mx-auto px-6 py-16">
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-stone-800 mb-2 fade-in" style={{ fontFamily: "'Noto Serif', serif" }}>Get in Touch</h2>
+        <h2 className="text-4xl font-bold text-stone-800 mb-2 fade-in">Get in Touch</h2>
         <p className="text-lg text-stone-600 fade-in" style={{ animationDelay: '0.3s' }}>We would love to hear from you.</p>
         <div className="w-24 h-1 bg-amber-500 mx-auto mt-4 fade-in" style={{ animationDelay: '0.6s' }}></div>
       </div>
